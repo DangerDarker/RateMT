@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     RateBuddy rateBuddy = new RateBuddy(item.getEname() ,
                             item.getCname() , item.getRate() , item.getDate());
                     buddies.add(new RecyclerItem(rateBuddy , "0"));
+                    rateBuddyMap.put(item.getCname() , rateBuddy);
                 }
             }
         }else{
@@ -108,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Ok = findViewById(R.id.input_ok);
         Ok.setOnClickListener(this);
         et.addTextChangedListener(new TextWatcher() {
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
@@ -139,13 +139,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count,
                                           int after) {
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 // TODO Auto-generated method stub
-
             }
 
         });
@@ -278,7 +275,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }else{
                                     isSource = true;
                                 }
-
                             }
                             if(isSource){
                                 rateBuddyMap.remove(source);
@@ -290,7 +286,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }
                             });
                         }
-
                     }
                 }).start();
             }
